@@ -14,6 +14,9 @@
 		91F1544E2A5CB9250059977A /* ProServ_MobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1544D2A5CB9250059977A /* ProServ_MobileTests.swift */; };
 		91F154582A5CB9250059977A /* ProServ_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F154572A5CB9250059977A /* ProServ_MobileUITests.swift */; };
 		91F1545A2A5CB9250059977A /* ProServ_MobileUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F154592A5CB9250059977A /* ProServ_MobileUITestsLaunchTests.swift */; };
+		91F1546A2A5CC03E0059977A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F154692A5CC03E0059977A /* HomeView.swift */; };
+		91F1546E2A5CC07D0059977A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1546D2A5CC07D0059977A /* HomeViewModel.swift */; };
+		91F154712A5CC36B0059977A /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F154702A5CC36B0059977A /* ColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		91F154532A5CB9250059977A /* ProServ MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ProServ MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F154572A5CB9250059977A /* ProServ_MobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProServ_MobileUITests.swift; sourceTree = "<group>"; };
 		91F154592A5CB9250059977A /* ProServ_MobileUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProServ_MobileUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		91F154692A5CC03E0059977A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		91F1546D2A5CC07D0059977A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		91F154702A5CC36B0059977A /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,10 @@
 		91F1543B2A5CB9240059977A /* ProServ Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				91F1546F2A5CC35B0059977A /* Data */,
+				91F154682A5CC00D0059977A /* ViewModels */,
+				91F154672A5CBFFB0059977A /* Models */,
+				91F154662A5CBFF30059977A /* Views */,
 				91F1543C2A5CB9240059977A /* ProServ_MobileApp.swift */,
 				91F1543E2A5CB9240059977A /* ContentView.swift */,
 				91F154402A5CB9250059977A /* Assets.xcassets */,
@@ -125,6 +135,37 @@
 				91F154592A5CB9250059977A /* ProServ_MobileUITestsLaunchTests.swift */,
 			);
 			path = "ProServ MobileUITests";
+			sourceTree = "<group>";
+		};
+		91F154662A5CBFF30059977A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91F154692A5CC03E0059977A /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91F154672A5CBFFB0059977A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		91F154682A5CC00D0059977A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				91F1546D2A5CC07D0059977A /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		91F1546F2A5CC35B0059977A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				91F154702A5CC36B0059977A /* ColorExtensions.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91F1546A2A5CC03E0059977A /* HomeView.swift in Sources */,
+				91F154712A5CC36B0059977A /* ColorExtensions.swift in Sources */,
 				91F1543F2A5CB9240059977A /* ContentView.swift in Sources */,
 				91F1543D2A5CB9240059977A /* ProServ_MobileApp.swift in Sources */,
+				91F1546E2A5CC07D0059977A /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
