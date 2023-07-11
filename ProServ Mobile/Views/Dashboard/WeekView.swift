@@ -30,8 +30,15 @@ struct WeekView: View {
                 
                 Spacer()
                 
-                Text(coach)
-                    .foregroundColor(.primary)
+                VStack(alignment: .leading){
+                    Text("Assigned By")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    
+                    Text(coach)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                }
             }.padding(.bottom, 20)
         }
         .background(Color.clear) // Add a clear background so the button doesn't highlight when pressed

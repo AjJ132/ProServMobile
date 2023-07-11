@@ -18,12 +18,24 @@ class HomeViewModel: ObservableObject {
             WeekData(day: "Friday", activity: "Weights", coach: "Coach Sarah")
         ]
     
+    let coachContactData: [CoachContact] = [
+        CoachContact(coach: "Sarah Hendrick", coachRole: "Head Coach"),
+        CoachContact(coach: "Faith Bobak", coachRole: "Assistant Coach")
+    ]
+    
+    
     // You'd then call your API here, probably in an init method, or in response to certain actions, and then save the data to `yourModels`.
     struct WeekData: Identifiable {
         let id = UUID()
         let day: String
         let activity: String
         let coach: String
+    }
+    
+    struct CoachContact: Identifiable {
+        let id = UUID()
+        let coach: String
+        let coachRole: String
     }
     
     
