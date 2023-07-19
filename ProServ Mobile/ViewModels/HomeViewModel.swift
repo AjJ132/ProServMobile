@@ -50,4 +50,30 @@ class HomeViewModel: ObservableObject {
 //            }
 //        }
     }
+
+    func getUserInformation(){
+        let url = URL(string: "https://localhost:5274/api/user/user-information")!
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \("token")", forHTTPHeaderField: "Authorization")
+
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+            } else if let data = data {
+                let str = String(data: data, encoding: .utf8)
+                print("Received data:\n\(str ?? "")")
+                
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                do {
+                    let userInformation = try decoder.decode(UserInformation.self, from: data)
+                    print(userInformation)
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+            }
+        }
+        task.resume()
+
+    }
 }

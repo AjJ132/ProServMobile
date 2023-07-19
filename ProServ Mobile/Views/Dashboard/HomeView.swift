@@ -64,6 +64,7 @@ struct HomeView: View {
                                 Button(action: {
                                     // Here is where you put the code to perform when the button is tapped.
                                     print("Button tapped!")
+                                    viewModel.getUserInformation()
                                 }) {
                                     Text("Report")
                                         .font(.title)
