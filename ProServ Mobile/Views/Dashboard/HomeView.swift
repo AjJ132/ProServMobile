@@ -42,7 +42,7 @@ struct HomeView: View {
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
                                     
-                                    Text("AJ Johnson")
+                                    Text(viewModel.userInformation?.firstName ?? "NOT-FOUND")
                                         .font(.body)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
@@ -64,7 +64,6 @@ struct HomeView: View {
                                 Button(action: {
                                     // Here is where you put the code to perform when the button is tapped.
                                     print("Button tapped!")
-                                    viewModel.getUserInformation()
                                 }) {
                                     Text("Report")
                                         .font(.title)
@@ -124,11 +123,14 @@ struct HomeView: View {
             }.ignoresSafeArea()
             .frame(maxWidth: geo.size.width)
         }
+        .onAppear {
+                    viewModel.getUserInformation()
+                }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
+        HomeView(viewModel: HomeViewModel(userService: UserService()))
     }
 }

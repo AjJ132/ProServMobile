@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9174210A2A67779F003C59EE /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917421092A67779F003C59EE /* UserInformation.swift */; };
+		91876C312A6A1A9100891047 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C302A6A1A9100891047 /* LoginViewModel.swift */; };
+		91876C332A6A1B7400891047 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C322A6A1B7400891047 /* LoginView.swift */; };
+		91876C372A6A1E0100891047 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C352A6A1E0100891047 /* KeychainItemAccessibility.swift */; };
+		91876C382A6A1E0100891047 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C362A6A1E0100891047 /* KeychainWrapper.swift */; };
 		91F1543D2A5CB9240059977A /* ProServ_MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1543C2A5CB9240059977A /* ProServ_MobileApp.swift */; };
 		91F1543F2A5CB9240059977A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1543E2A5CB9240059977A /* ContentView.swift */; };
 		91F154412A5CB9250059977A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F154402A5CB9250059977A /* Assets.xcassets */; };
@@ -21,6 +25,10 @@
 		91F154732A5D767E0059977A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F154722A5D767E0059977A /* CardView.swift */; };
 		91F154782A5D822F0059977A /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F154772A5D822F0059977A /* WeekView.swift */; };
 		91F1547A2A5D9A4B0059977A /* CoachContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F154792A5D9A4B0059977A /* CoachContactView.swift */; };
+		91FD02F42A6DF37A001EF9AA /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD02F32A6DF37A001EF9AA /* ActivityIndicator.swift */; };
+		91FD02F72A6E0415001EF9AA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD02F62A6E0415001EF9AA /* UserService.swift */; };
+		91FD02F92A6E0978001EF9AA /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD02F82A6E0978001EF9AA /* TeamService.swift */; };
+		91FD02FC2A6E09F6001EF9AA /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD02FB2A6E09F6001EF9AA /* Team.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +50,10 @@
 
 /* Begin PBXFileReference section */
 		917421092A67779F003C59EE /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		91876C302A6A1A9100891047 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		91876C322A6A1B7400891047 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		91876C352A6A1E0100891047 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainItemAccessibility.swift; path = "../../../../../../Downloads/SwiftKeychainWrapper-develop/SwiftKeychainWrapper/KeychainItemAccessibility.swift"; sourceTree = "<group>"; };
+		91876C362A6A1E0100891047 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainWrapper.swift; path = "../../../../../../Downloads/SwiftKeychainWrapper-develop/SwiftKeychainWrapper/KeychainWrapper.swift"; sourceTree = "<group>"; };
 		91F154392A5CB9240059977A /* ProServ Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProServ Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F1543C2A5CB9240059977A /* ProServ_MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProServ_MobileApp.swift; sourceTree = "<group>"; };
 		91F1543E2A5CB9240059977A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +70,10 @@
 		91F154722A5D767E0059977A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		91F154772A5D822F0059977A /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		91F154792A5D9A4B0059977A /* CoachContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachContactView.swift; sourceTree = "<group>"; };
+		91FD02F32A6DF37A001EF9AA /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		91FD02F62A6E0415001EF9AA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		91FD02F82A6E0978001EF9AA /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		91FD02FB2A6E09F6001EF9AA /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +101,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91876C2F2A6A1A7800891047 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				91876C322A6A1B7400891047 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		91876C342A6A1DC900891047 /* Custom Packages */ = {
+			isa = PBXGroup;
+			children = (
+				91876C352A6A1E0100891047 /* KeychainItemAccessibility.swift */,
+				91876C362A6A1E0100891047 /* KeychainWrapper.swift */,
+			);
+			path = "Custom Packages";
+			sourceTree = "<group>";
+		};
 		91F154302A5CB9240059977A = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +141,8 @@
 		91F1543B2A5CB9240059977A /* ProServ Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				91FD02F52A6E0401001EF9AA /* Services */,
+				91876C342A6A1DC900891047 /* Custom Packages */,
 				91F1546F2A5CC35B0059977A /* Data */,
 				91F154682A5CC00D0059977A /* ViewModels */,
 				91F154672A5CBFFB0059977A /* Models */,
@@ -148,6 +183,8 @@
 		91F154662A5CBFF30059977A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91FD02F22A6DF362001EF9AA /* Other */,
+				91876C2F2A6A1A7800891047 /* Login */,
 				91F154762A5D82170059977A /* Dashboard */,
 				91F154722A5D767E0059977A /* CardView.swift */,
 			);
@@ -157,6 +194,7 @@
 		91F154672A5CBFFB0059977A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				91FD02FA2A6E09EB001EF9AA /* Team */,
 				917421092A67779F003C59EE /* UserInformation.swift */,
 			);
 			path = Models;
@@ -166,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				91F1546D2A5CC07D0059977A /* HomeViewModel.swift */,
+				91876C302A6A1A9100891047 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -186,6 +225,31 @@
 				91F154792A5D9A4B0059977A /* CoachContactView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		91FD02F22A6DF362001EF9AA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				91FD02F32A6DF37A001EF9AA /* ActivityIndicator.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		91FD02F52A6E0401001EF9AA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				91FD02F62A6E0415001EF9AA /* UserService.swift */,
+				91FD02F82A6E0978001EF9AA /* TeamService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		91FD02FA2A6E09EB001EF9AA /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				91FD02FB2A6E09F6001EF9AA /* Team.swift */,
+			);
+			path = Team;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,10 +386,18 @@
 				91F154712A5CC36B0059977A /* ColorExtensions.swift in Sources */,
 				91F1543F2A5CB9240059977A /* ContentView.swift in Sources */,
 				91F154782A5D822F0059977A /* WeekView.swift in Sources */,
+				91FD02F92A6E0978001EF9AA /* TeamService.swift in Sources */,
+				91FD02F42A6DF37A001EF9AA /* ActivityIndicator.swift in Sources */,
 				9174210A2A67779F003C59EE /* UserInformation.swift in Sources */,
+				91876C372A6A1E0100891047 /* KeychainItemAccessibility.swift in Sources */,
+				91FD02FC2A6E09F6001EF9AA /* Team.swift in Sources */,
 				91F1543D2A5CB9240059977A /* ProServ_MobileApp.swift in Sources */,
 				91F154732A5D767E0059977A /* CardView.swift in Sources */,
 				91F1547A2A5D9A4B0059977A /* CoachContactView.swift in Sources */,
+				91876C312A6A1A9100891047 /* LoginViewModel.swift in Sources */,
+				91FD02F72A6E0415001EF9AA /* UserService.swift in Sources */,
+				91876C332A6A1B7400891047 /* LoginView.swift in Sources */,
+				91876C382A6A1E0100891047 /* KeychainWrapper.swift in Sources */,
 				91F1546E2A5CC07D0059977A /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,28 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = LoginViewModel()
+
     var body: some View {
         VStack {
-            
-            TabView {
-                HomeView(viewModel: HomeViewModel())
-                    .badge(2)
-                    .tabItem {
-                        Label("Home", systemImage: "house.fill")
-                    }
-                HomeView(viewModel: HomeViewModel())
-                    .tabItem {
-                        Label("Workouts", systemImage: "figure.run")
-                    }
-                HomeView(viewModel: HomeViewModel())
-                    .badge("!")
-                    .tabItem {
-                        Label("Account", systemImage: "person.crop.circle.fill")
-                    }
+            if viewModel.isAuthenticated {
+                TabView {
+                    HomeView(viewModel: HomeViewModel(userService: UserService()))
+                        .badge(2)
+                        .tabItem {
+                            Label("Home", systemImage: "house.fill")
+                        }
+                    HomeView(viewModel: HomeViewModel(userService: UserService()))
+                        .tabItem {
+                            Label("Workouts", systemImage: "figure.run")
+                        }
+                    HomeView(viewModel: HomeViewModel(userService: UserService()))
+                        .badge("!")
+                        .tabItem {
+                            Label("Account", systemImage: "person.crop.circle.fill")
+                        }
+                }
+                .background(Color.primaryBackground)
+            } else {
+                LoginView(viewModel: viewModel)
             }
-            .background(Color.primaryBackground)
         }
-        .background(Color.pink)
     }
 }
 

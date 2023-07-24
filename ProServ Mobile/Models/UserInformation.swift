@@ -9,8 +9,8 @@ import Foundation
 
 class UserInformation : Decodable {
     var userId: String
-    var firstName: String?
-    var lastName: String?
+    var firstName: String
+    var lastName: String
     var city: String?
     var state: String?
     var height: String?
@@ -46,7 +46,7 @@ class UserInformation : Decodable {
             case teamID
         }
     
-    init(userId: String, firstName: String? = nil, lastName: String? = nil, city: String? = nil, state: String? = nil, height: String? = nil, weight: Int, isInHighschool: Bool, school: String? = nil, birthday: Date, gender: String? = nil, userType: String? = nil, reportsTo: String? = nil, dateCreated: Date, lastAccessed: Date, activeUser: Bool, teamID: Int) {
+    init(userId: String, firstName: String, lastName: String, city: String? = nil, state: String? = nil, height: String? = nil, weight: Int, isInHighschool: Bool, school: String? = nil, birthday: Date, gender: String? = nil, userType: String? = nil, reportsTo: String? = nil, dateCreated: Date, lastAccessed: Date, activeUser: Bool, teamID: Int) {
         self.userId = userId
         self.firstName = firstName
         self.lastName = lastName

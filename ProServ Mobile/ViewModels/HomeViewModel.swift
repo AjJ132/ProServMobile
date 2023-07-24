@@ -10,6 +10,8 @@ class HomeViewModel: ObservableObject {
     // @Published properties will automatically update the view when changed.
     //@Published var yourModels = [YourModel]()
     
+    //Test Variable
+    
     let weekData: [WeekData] = [
             WeekData(day: "Monday", activity: "Cooldown", coach: "Coach Sarah"),
             WeekData(day: "Tuesday", activity: "Sprint", coach: "Coach Sarah"),
@@ -38,42 +40,25 @@ class HomeViewModel: ObservableObject {
         let coachRole: String
     }
     
+    //Services and Controllers
+    let userService : UserService
     
-    init() {
-        // Call your API here and update yourModels
-//       APIService.fetchData { (result) in
-//            switch result {
-//            case .success(let models):
-//                self.yourModels = models
-//            case .failure(let error):
-//                print (error.localizedDescription)
-//            }
-//        }
+        //Everything User
+    @Published var userInformation: UserInformation?
+    
+    init(userService: UserService) {
+        self.userService = userService
     }
-
+    
     func getUserInformation(){
-        let url = URL(string: "https://localhost:5274/api/user/user-information")!
-        var request = URLRequest(url: url)
-        request.setValue("Bearer \("token")", forHTTPHeaderField: "Authorization")
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)")
-            } else if let data = data {
-                let str = String(data: data, encoding: .utf8)
-                print("Received data:\n\(str ?? "")")
-                
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                do {
-                    let userInformation = try decoder.decode(UserInformation.self, from: data)
-                    print(userInformation)
-                } catch {
-                    print("Error decoding JSON: \(error)")
-                }
+        self.userService.getUserInformation { [weak self] userInfo in
+            DispatchQueue.main.async{
+                self?.userInformation = userInfo
             }
         }
-        task.resume()
-
     }
+
+
+    
+
 }
