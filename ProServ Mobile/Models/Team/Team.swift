@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Team {
+class Team  : Decodable{
     var teamID: Int
     var teamName: String
     var location: String
@@ -15,6 +15,16 @@ class Team {
     var usersCode: String?
     var terminated: Bool
     var ownerID: String
+    
+    enum CodingKeys: String, CodingKey {
+            case teamID
+            case teamName
+            case location
+            case coachesCode
+            case usersCode
+            case terminated
+            case ownerID
+        }
     
     init(teamID: Int, teamName: String, location: String, coachesCode: String?, usersCode: String?, terminated: Bool, ownerID: String) {
         self.teamID = teamID

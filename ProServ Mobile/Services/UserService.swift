@@ -9,10 +9,10 @@ import Foundation
 
 class UserService {
     
-    func getUserInformation(completion: @escaping (UserInformation?) -> Void) {
+    func getUserInformation(completion: @escaping (Result<UserInformation, Error>) -> Void) {
         guard let token = self.getToken() else {
             print("Token not found")
-            completion(nil)
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not found"])))
             return
         }
         
@@ -23,7 +23,7 @@ class UserService {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
-                completion(nil)
+                completion(.failure(error))
             } else if let data = data {
                 //TEMP FIX Datetimes need to be DateTimeOffset at UTC values
                 let dateFormatter = DateFormatter()
@@ -35,16 +35,17 @@ class UserService {
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
                 do {
-                    let userInformation = try decoder.decode(UserInformation.self, from: data)
-                    completion(userInformation)
+                    let userInfo = try decoder.decode(UserInformation.self, from: data)
+                    completion(.success(userInfo))
                 } catch {
                     print("Error decoding JSON: \(error)")
-                    completion(nil)
+                    completion(.failure(error))
                 }
             }
         }
         task.resume()
     }
+
 
 
     func getToken() -> String? {

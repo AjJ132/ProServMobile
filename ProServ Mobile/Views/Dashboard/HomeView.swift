@@ -24,7 +24,6 @@ struct HomeView: View {
                                         .font(.largeTitle)
                                         .fontWeight(.bold)
                                         .foregroundColor(.white)
-                                    
                                 }
                                 
                                 Spacer()
@@ -37,15 +36,16 @@ struct HomeView: View {
                             
                             HStack{
                                 VStack(alignment: .leading){
-                                    Text("Pace Perfect")
+                                    Text(viewModel.userTeamName ?? "")
                                         .font(.title2)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
                                     
-                                    Text(viewModel.userInformation?.firstName ?? "NOT-FOUND")
+                                    Text(viewModel.userFirstName ?? "")
                                         .font(.body)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
+
                                 }
                                 Spacer()
                             }
@@ -131,6 +131,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel(userService: UserService()))
+        HomeView(viewModel: HomeViewModel())
     }
 }

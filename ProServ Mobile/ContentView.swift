@@ -14,16 +14,16 @@ struct ContentView: View {
         VStack {
             if viewModel.isAuthenticated {
                 TabView {
-                    HomeView(viewModel: HomeViewModel(userService: UserService()))
+                    HomeView(viewModel: HomeViewModel())
                         .badge(2)
                         .tabItem {
                             Label("Home", systemImage: "house.fill")
                         }
-                    HomeView(viewModel: HomeViewModel(userService: UserService()))
+                    HomeView(viewModel: HomeViewModel())
                         .tabItem {
                             Label("Workouts", systemImage: "figure.run")
                         }
-                    HomeView(viewModel: HomeViewModel(userService: UserService()))
+                    HomeView(viewModel: HomeViewModel())
                         .badge("!")
                         .tabItem {
                             Label("Account", systemImage: "person.crop.circle.fill")

@@ -41,22 +41,113 @@ class HomeViewModel: ObservableObject {
     }
     
     //Services and Controllers
-    let userService : UserService
+    let _serviceOrchestrator : ServiceOrchestrator
+
     
-        //Everything User
-    @Published var userInformation: UserInformation?
     
-    init(userService: UserService) {
-        self.userService = userService
-    }
-    
-    func getUserInformation(){
-        self.userService.getUserInformation { [weak self] userInfo in
-            DispatchQueue.main.async{
-                self?.userInformation = userInfo
+    //Everything User
+    // User-related properties
+    @Published var userInformation: DataState<UserInformation> = .idle {
+        didSet {
+            switch userInformation {
+            case .loaded(let userInfo):
+                userFirstName = userInfo.firstName
+            default:
+                userFirstName = nil
             }
         }
     }
+    
+    @Published var userTeam: DataState<Team> = .idle {
+        didSet {
+            switch userTeam {
+            case .loaded(let userTeam):
+                userTeamName = userTeam.teamName
+            default:
+                userTeamName = nil
+            }
+        }
+    }
+    
+    @Published var userWeekWorkouts: DataState<[Workout]> = .idle {
+        didSet {
+            switch userWeekWorkouts {
+            case .loaded(let workouts):
+                weeksWorkouts = workouts
+            default:
+                weeksWorkouts = nil
+            }
+        }
+    }
+
+    
+    //UI variables
+    @Published var userFirstName: String?
+    @Published var userTeamName: String?
+    @Published var weeksWorkouts: [Workout]? = nil
+
+
+
+    
+    init() {
+        self._serviceOrchestrator = ServiceOrchestrator()
+        
+        //self.userInformation = UserInformation()
+        //self.userTeam = Team()
+        
+        //Get User Information
+        getUserInformation()
+        
+        //Get Team Information
+        getUserTeam()
+        
+        //Get this weeks workouts for the user
+        getThisWeeksWorkouts()
+    }
+    
+    func getUserInformation() {
+        self.userInformation = .loading
+        self._serviceOrchestrator._userService.getUserInformation() { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let userInfo):
+                    self?.userInformation = .loaded(userInfo)
+                case .failure(let error):
+                    self?.userInformation = .error(error)
+                }
+            }
+        }
+    }
+
+    func getUserTeam() {
+        self.userTeam = .loading
+        self._serviceOrchestrator._teamService.getTeam() { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let team):
+                    self?.userTeam = .loaded(team)
+                case .failure(let error):
+                    self?.userTeam = .error(error)
+                }
+            }
+        }
+    }
+
+    func getThisWeeksWorkouts(){
+        self.userWeekWorkouts = .loading
+        self._serviceOrchestrator._workoutService.getAllWorkouts() { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let workouts):
+                    self?.userWeekWorkouts = .loaded(workouts)
+                case .failure(let error):
+                    self?.userWeekWorkouts = .error(error)
+                }
+            }
+        }
+    }
+
+
 
 
     

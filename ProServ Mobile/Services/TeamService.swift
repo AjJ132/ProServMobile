@@ -9,26 +9,10 @@ import Foundation
 
 class TeamService{
     
-    private var teamID : Int?
-    
-    func setTeam(teamID : Int){
-        self.teamID = teamID
-    }
-    
-    func getTeamName(){
-        
-    }
-    
-    func getTeam(completion: @escaping (Team?) -> Void) {
+    func getTeam(completion: @escaping (Result<Team, Error>) -> Void) {
         guard let token = self.getToken() else {
             print("Token not found")
-            completion(nil)
-            return
-        }
-        
-        //Ensure teamID is set
-        if(teamID == nil){
-            completion(nil)
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not found"])))
             return
         }
         
@@ -39,7 +23,7 @@ class TeamService{
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
-                completion(nil)
+                completion(.failure(error))
             } else if let data = data {
                 //TEMP FIX Datetimes need to be DateTimeOffset at UTC values
                 let dateFormatter = DateFormatter()
@@ -51,16 +35,17 @@ class TeamService{
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
                 do {
-                    let userInformation = try decoder.decode(Team.self, from: data)
-                    completion(userInformation)
+                    let team = try decoder.decode(Team.self, from: data)
+                    completion(.success(team))
                 } catch {
                     print("Error decoding JSON: \(error)")
-                    completion(nil)
+                    completion(.failure(error))
                 }
             }
         }
         task.resume()
     }
+
 
     func getToken() -> String? {
         return KeychainWrapper.standard.string(forKey: "userToken")
