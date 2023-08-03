@@ -53,7 +53,7 @@ class HomeViewModel: ObservableObject {
             case .loaded(let userInfo):
                 userFirstName = userInfo.firstName
             default:
-                userFirstName = nil
+                userFirstName = ""
             }
         }
     }
@@ -64,36 +64,33 @@ class HomeViewModel: ObservableObject {
             case .loaded(let userTeam):
                 userTeamName = userTeam.teamName
             default:
-                userTeamName = nil
+                userTeamName = ""
             }
         }
     }
     
-    @Published var userWeekWorkouts: DataState<[Workout]> = .idle {
+    @Published var userWeekWorkouts: DataState<[AssignedWorkout]> = .idle {
         didSet {
             switch userWeekWorkouts {
             case .loaded(let workouts):
                 weeksWorkouts = workouts
             default:
-                weeksWorkouts = nil
+                weeksWorkouts = []
             }
         }
     }
 
     
     //UI variables
-    @Published var userFirstName: String?
-    @Published var userTeamName: String?
-    @Published var weeksWorkouts: [Workout]? = nil
+    @Published var userFirstName: String = ""
+    @Published var userTeamName: String = ""
+    @Published var weeksWorkouts: [AssignedWorkout] = []
 
 
 
     
     init() {
         self._serviceOrchestrator = ServiceOrchestrator()
-        
-        //self.userInformation = UserInformation()
-        //self.userTeam = Team()
         
         //Get User Information
         getUserInformation()
@@ -135,7 +132,7 @@ class HomeViewModel: ObservableObject {
 
     func getThisWeeksWorkouts(){
         self.userWeekWorkouts = .loading
-        self._serviceOrchestrator._workoutService.getAllWorkouts() { [weak self] result in
+        self._serviceOrchestrator._workoutService.getWeeksWorkouts() { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let workouts):
@@ -146,6 +143,14 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    //Get the day of the week string from Date
+    func dayOfWeek(from date: Date) -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            return dateFormatter.string(from: date)
+        }
 
 
 

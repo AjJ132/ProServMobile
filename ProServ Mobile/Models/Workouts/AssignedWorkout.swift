@@ -8,34 +8,39 @@
 import Foundation
 
 
-class AssignedWorkout : Decodable
+class AssignedWorkout : Decodable, Identifiable
 {
-    var Index : Int
-    var WorkoutId : Int
-    var WorkoutDate : Date
-    var Notes : String
-    var AssigneeId : String
-    var ReportBack : Bool
-    var WorkoutName : String
+    var id = UUID()
+    var index : Int
+    var workoutId : Int
+    var workoutDate : Date
+    var notes : String?
+    var assigneeId : String
+    var reportBack : Bool
+    var workoutName : String
+    var coachName : String
+
     
-    enum CodingKeys : String, CodingKey{
-        case Index
-        case WorkoutId
-        case WorkoutDate
-        case Notes
-        case AssigneeId
-        case ReportBack
-        case WorkoutName
+    enum CodingKeys: String, CodingKey {
+        case index
+        case workoutId
+        case workoutDate
+        case notes
+        case assigneeId
+        case reportBack
+        case workoutName
+        case coachName
     }
     
-    init(Index: Int, WorkoutId: Int, WorkoutDate: Date, Notes: String, AssigneeId: String, ReportBack: Bool, WorkoutName: String) {
-        self.Index = Index
-        self.WorkoutId = WorkoutId
-        self.WorkoutDate = WorkoutDate
-        self.Notes = Notes
-        self.AssigneeId = AssigneeId
-        self.ReportBack = ReportBack
-        self.WorkoutName = WorkoutName
+    init(Index: Int, WorkoutId: Int, WorkoutDate: Date, Notes: String, AssigneeId: String, ReportBack: Bool, WorkoutName: String, coachName: String) {
+        self.index = Index
+        self.workoutId = WorkoutId
+        self.workoutDate = WorkoutDate
+        self.notes = Notes
+        self.assigneeId = AssigneeId
+        self.reportBack = ReportBack
+        self.workoutName = WorkoutName
+        self.coachName = coachName
     }
     
 }

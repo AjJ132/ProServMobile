@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct WeekView: View {
-    let day: String
+    let day: Date
     let activity: String
     let coach: String
+    
+    var dayOfWeek: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE" // "EEEE" will give you the full name of the day
+        return dateFormatter.string(from: day)
+    }
+    
+    var isToday: Bool {
+        return Calendar.current.isDateInToday(day)
+    }
+
+
 
     var body: some View {
         Button(action: {
@@ -19,7 +31,7 @@ struct WeekView: View {
         }) {
             HStack{
                 VStack(alignment: .leading){
-                    Text(day)
+                    Text(dayOfWeek)
                         .font(.headline)
                         .foregroundColor(.primary)
                     
@@ -30,15 +42,7 @@ struct WeekView: View {
                 
                 Spacer()
                 
-                VStack(alignment: .leading){
-                    Text("Assigned By")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    
-                    Text(coach)
-                        .font(.body)
-                        .foregroundColor(.secondary)
-                }
+               
             }.padding(.bottom, 20)
         }
         .background(Color.clear) // Add a clear background so the button doesn't highlight when pressed

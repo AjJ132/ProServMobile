@@ -73,7 +73,14 @@ class WorkoutService{
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
                 do {
-                    let assignedWorkouts = try decoder.decode([AssignedWorkout].self, from: data)
+                    let responseString = String(data: data, encoding: .utf8)
+                    //print("JSON Response: \(responseString ?? "No Data")")
+                    // Decode example
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+                    let response = try decoder.decode(AssignedWorkoutsResponse.self, from: data)
+                    let assignedWorkouts = response.values
+                    print("Got Workouts")
                     completion(.success(assignedWorkouts))
                 } catch {
                     print("Error decoding JSON: \(error)")
@@ -88,6 +95,14 @@ class WorkoutService{
 
     func getToken() -> String? {
         return KeychainWrapper.standard.string(forKey: "userToken")
+    }
+    
+    struct AssignedWorkoutsResponse: Decodable {
+        let values: [AssignedWorkout]
+
+        enum CodingKeys: String, CodingKey {
+            case values = "$values"
+        }
     }
 
 }

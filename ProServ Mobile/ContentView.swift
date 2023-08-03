@@ -19,7 +19,7 @@ struct ContentView: View {
                         .tabItem {
                             Label("Home", systemImage: "house.fill")
                         }
-                    HomeView(viewModel: HomeViewModel())
+                    WorkoutCalendar(viewModel: WorkoutCalendarViewModel())
                         .tabItem {
                             Label("Workouts", systemImage: "figure.run")
                         }

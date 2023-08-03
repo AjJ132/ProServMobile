@@ -36,12 +36,12 @@ struct HomeView: View {
                             
                             HStack{
                                 VStack(alignment: .leading){
-                                    Text(viewModel.userTeamName ?? "")
+                                    Text(viewModel.userTeamName)
                                         .font(.title2)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
                                     
-                                    Text(viewModel.userFirstName ?? "")
+                                    Text(viewModel.userFirstName)
                                         .font(.body)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
@@ -63,6 +63,7 @@ struct HomeView: View {
                                 Spacer()
                                 Button(action: {
                                     // Here is where you put the code to perform when the button is tapped.
+                                    viewModel.getThisWeeksWorkouts()
                                     print("Button tapped!")
                                 }) {
                                     Text("Report")
@@ -90,11 +91,29 @@ struct HomeView: View {
                                     .fontWeight(.bold)
                                     .padding(.bottom, 20)
                                 
-                                VStack(spacing: 10) {
-                                    ForEach(viewModel.weekData) { data in
-                                        WeekView(day: data.day, activity: data.activity, coach: data.coach)
-                                    }
-                                }
+                                switch viewModel.userWeekWorkouts {
+                                       case .loading:
+                                           // Loading state
+                                           ProgressView()
+                                               .progressViewStyle(CircularProgressViewStyle())
+                                       case .loaded:
+                                           // Loaded state
+                                        VStack(spacing: 10) {
+                                            ForEach(viewModel.weeksWorkouts) { data in
+                                                WeekView(day: data.workoutDate, activity: data.workoutName, coach: data.coachName)
+                                                
+                                            }
+                                        }
+
+                                       case .error(let error):
+                                           // Error state
+                                           Text("An error occurred: \(error.localizedDescription)")
+                                        case .idle:
+                                            Text("Data Idle")
+                                        }
+
+
+
                             }
                         }
                         .padding(20)
@@ -123,9 +142,6 @@ struct HomeView: View {
             }.ignoresSafeArea()
             .frame(maxWidth: geo.size.width)
         }
-        .onAppear {
-                    viewModel.getUserInformation()
-                }
     }
 }
 
