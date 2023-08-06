@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WorkoutCalendar: View {
+struct WorkoutCalendarTest: View {
     @Environment(\.colorScheme) var colorScheme // Detect the current color scheme
     @ObservedObject var viewModel: WorkoutCalendarViewModel
     @State private var showDetails = false
@@ -41,31 +41,6 @@ struct WorkoutCalendar: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                                 Spacer()
-                                HStack{
-                                    Button(action:{
-                                        viewModel.previousWeek()
-                                    }){
-                                        Image(systemName: "arrow.left.square.fill")
-                                            .font(.title3)
-                                            .foregroundColor(.white)
-                                    }
-                                    Text(viewModel.weekStart)
-                                        .font(.title3)
-                                        .foregroundColor(.white)
-                                    Text("-")
-                                        .font(.title3)
-                                        .foregroundColor(.white)
-                                    Text(viewModel.weekEnd)
-                                        .font(.title3)
-                                        .foregroundColor(.white)
-                                    Button(action:{
-                                        viewModel.nextWeek()
-                                    }){
-                                        Image(systemName: "arrow.right.square.fill")
-                                            .font(.title3)
-                                            .foregroundColor(.white)
-                                    }
-                                }
                             }.padding((.top))
                             
                             ScrollView(.horizontal, showsIndicators: false) {
@@ -85,7 +60,16 @@ struct WorkoutCalendar: View {
                             Color(.systemBackground)
                             
                             VStack {
-                                
+                                Button(action: {
+                                    withAnimation {
+                                        showDetails.toggle()
+                                    }
+                                }) {
+                                    Image(systemName: showDetails ? "chevron.compact.up" : "chevron.compact.down") // Change arrow based on condition
+                                        .font(.largeTitle)
+                                        .foregroundColor(colorScheme == .dark ? .white : .gray) // Change color based on appearance mode
+                                }
+                                Spacer()
                             }
                             .padding()
                         }
@@ -99,10 +83,9 @@ struct WorkoutCalendar: View {
             }.background(Color.blue)
         }
     }
-
-    struct WorkoutCalendar_Previews: PreviewProvider {
+    struct WorkoutCalendarTest_Previews: PreviewProvider {
         static var previews: some View {
-            WorkoutCalendar(viewModel: WorkoutCalendarViewModel())
+            WorkoutCalendarTest(viewModel: WorkoutCalendarViewModel())
         }
     }
     

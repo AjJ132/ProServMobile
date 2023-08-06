@@ -64,6 +64,15 @@ class LoginViewModel: ObservableObject {
         task.resume()
     }
     
+    func bypassLogin(){
+        DispatchQueue.main.async {
+            self.userToken = ""
+            self.isAuthenticated = true
+        }
+        
+        
+    }
+    
     func storeToken(token: String) {
         KeychainWrapper.standard.set(token, forKey: "userToken")
     }

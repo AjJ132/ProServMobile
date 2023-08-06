@@ -50,6 +50,17 @@ struct LoginView: View {
                             .background(Color.blue)
                             .cornerRadius(15.0)
                     }
+                    Button(action: {
+                        viewModel.bypassLogin()
+                    }) {
+                        Text("Bypass")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(width: 220, height: 60)
+                            .background(Color.orange)
+                            .cornerRadius(15.0)
+                    }
                 }
                 
                 // Here is your loading screen
