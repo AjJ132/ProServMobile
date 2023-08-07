@@ -17,13 +17,13 @@
 		91570D872A79BF290035BEF1 /* WorkoutCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D862A79BF290035BEF1 /* WorkoutCalendar.swift */; };
 		91570D892A79BF3C0035BEF1 /* WorkoutCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D882A79BF3C0035BEF1 /* WorkoutCalendarViewModel.swift */; };
 		91570D8B2A7C553B0035BEF1 /* WorkoutCalendar Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D8A2A7C553B0035BEF1 /* WorkoutCalendar Test.swift */; };
-		916489552A806A70008D3DD2 /* ScrollingHStackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916489542A806A70008D3DD2 /* ScrollingHStackMod.swift */; };
 		916489582A806DA7008D3DD2 /* SwiftUISnappingScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 916489572A806DA7008D3DD2 /* SwiftUISnappingScrollView */; };
 		9174210A2A67779F003C59EE /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917421092A67779F003C59EE /* UserInformation.swift */; };
 		91876C312A6A1A9100891047 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C302A6A1A9100891047 /* LoginViewModel.swift */; };
 		91876C332A6A1B7400891047 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C322A6A1B7400891047 /* LoginView.swift */; };
 		91876C372A6A1E0100891047 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C352A6A1E0100891047 /* KeychainItemAccessibility.swift */; };
 		91876C382A6A1E0100891047 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C362A6A1E0100891047 /* KeychainWrapper.swift */; };
+		9192D4422A807EF200B52759 /* Calendar-Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192D4412A807EF200B52759 /* Calendar-Carousel.swift */; };
 		91F1543D2A5CB9240059977A /* ProServ_MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1543C2A5CB9240059977A /* ProServ_MobileApp.swift */; };
 		91F1543F2A5CB9240059977A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1543E2A5CB9240059977A /* ContentView.swift */; };
 		91F154412A5CB9250059977A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F154402A5CB9250059977A /* Assets.xcassets */; };
@@ -71,12 +71,12 @@
 		91570D862A79BF290035BEF1 /* WorkoutCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCalendar.swift; sourceTree = "<group>"; };
 		91570D882A79BF3C0035BEF1 /* WorkoutCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCalendarViewModel.swift; sourceTree = "<group>"; };
 		91570D8A2A7C553B0035BEF1 /* WorkoutCalendar Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutCalendar Test.swift"; sourceTree = "<group>"; };
-		916489542A806A70008D3DD2 /* ScrollingHStackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackMod.swift; sourceTree = "<group>"; };
 		917421092A67779F003C59EE /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		91876C302A6A1A9100891047 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		91876C322A6A1B7400891047 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		91876C352A6A1E0100891047 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainItemAccessibility.swift; path = "../../../../../../Downloads/SwiftKeychainWrapper-develop/SwiftKeychainWrapper/KeychainItemAccessibility.swift"; sourceTree = "<group>"; };
 		91876C362A6A1E0100891047 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainWrapper.swift; path = "../../../../../../Downloads/SwiftKeychainWrapper-develop/SwiftKeychainWrapper/KeychainWrapper.swift"; sourceTree = "<group>"; };
+		9192D4412A807EF200B52759 /* Calendar-Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar-Carousel.swift"; sourceTree = "<group>"; };
 		91F154392A5CB9240059977A /* ProServ Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProServ Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F1543C2A5CB9240059977A /* ProServ_MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProServ_MobileApp.swift; sourceTree = "<group>"; };
 		91F1543E2A5CB9240059977A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				91570D7D2A774AD90035BEF1 /* Response Wrapper.swift */,
+				9192D4412A807EF200B52759 /* Calendar-Carousel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -148,7 +149,6 @@
 				91570D842A79BE000035BEF1 /* ViewWorkout.swift */,
 				91570D862A79BF290035BEF1 /* WorkoutCalendar.swift */,
 				91570D8A2A7C553B0035BEF1 /* WorkoutCalendar Test.swift */,
-				916489542A806A70008D3DD2 /* ScrollingHStackMod.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -465,6 +465,7 @@
 				91570D742A73286F0035BEF1 /* DataState.swift in Sources */,
 				91F1547A2A5D9A4B0059977A /* CoachContactView.swift in Sources */,
 				91876C312A6A1A9100891047 /* LoginViewModel.swift in Sources */,
+				9192D4422A807EF200B52759 /* Calendar-Carousel.swift in Sources */,
 				91FD02F72A6E0415001EF9AA /* UserService.swift in Sources */,
 				91570D8B2A7C553B0035BEF1 /* WorkoutCalendar Test.swift in Sources */,
 				91570D7E2A774AD90035BEF1 /* Response Wrapper.swift in Sources */,
@@ -473,7 +474,6 @@
 				91876C332A6A1B7400891047 /* LoginView.swift in Sources */,
 				91570D722A731E1A0035BEF1 /* ServiceOrchestrator.swift in Sources */,
 				91876C382A6A1E0100891047 /* KeychainWrapper.swift in Sources */,
-				916489552A806A70008D3DD2 /* ScrollingHStackMod.swift in Sources */,
 				91F1546E2A5CC07D0059977A /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

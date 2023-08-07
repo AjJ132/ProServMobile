@@ -12,11 +12,8 @@ struct WorkoutCalendar: View {
     @Environment(\.colorScheme) var colorScheme // Detect the current color scheme
     @ObservedObject var viewModel: WorkoutCalendarViewModel
     @State private var showDetails = false
-    @State private var selectedDate = Date()
     @State private var viewOption = "Today"
-    
-    var colors: [Color] = [.blue, .green, .red, .orange]
-    
+
     var body: some View {
         GeometryReader { geo in
             ScrollView {
@@ -63,12 +60,17 @@ struct WorkoutCalendar: View {
                                 }
                             }
                         }.padding((.top))
-                        SnappingScrollView(.horizontal, decelerationRate: .fast) {
-                            HStack(spacing: 0) {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
                                 ForEach(viewModel.dates, id: \.self) { date in
-                                    Text(viewModel.dayOfWeek(from: date))
-                                        .padding(.trailing)
-                                        //.snappingScrollAnchor(.bounds)
+                                    Button(action: {
+                                        viewModel.selectedDate = date
+                                    }) {
+                                        Text(viewModel.dayOfWeek(from: date))
+                                            .foregroundColor(viewModel.selectedDate == date ? .white : .gray)
+                                            .font(viewModel.selectedDate == date ? .title2 : .title3)
+                                    }
+                                    .padding()
                                 }
 
                             }

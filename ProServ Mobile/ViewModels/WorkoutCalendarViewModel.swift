@@ -26,7 +26,7 @@ class WorkoutCalendarViewModel: ObservableObject {
     init(){
         setWeekForDate(date: Date())
         
-        //Set selectedDateIndex to the index of today in the week
+        //Set selectedDate to the index of today in the week
     }
     
     func indexOfDate(_ targetDate: Date) -> Int? {
