@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		91570D872A79BF290035BEF1 /* WorkoutCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D862A79BF290035BEF1 /* WorkoutCalendar.swift */; };
 		91570D892A79BF3C0035BEF1 /* WorkoutCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D882A79BF3C0035BEF1 /* WorkoutCalendarViewModel.swift */; };
 		91570D8B2A7C553B0035BEF1 /* WorkoutCalendar Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D8A2A7C553B0035BEF1 /* WorkoutCalendar Test.swift */; };
+		916489552A806A70008D3DD2 /* ScrollingHStackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916489542A806A70008D3DD2 /* ScrollingHStackMod.swift */; };
+		916489582A806DA7008D3DD2 /* SwiftUISnappingScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 916489572A806DA7008D3DD2 /* SwiftUISnappingScrollView */; };
 		9174210A2A67779F003C59EE /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917421092A67779F003C59EE /* UserInformation.swift */; };
 		91876C312A6A1A9100891047 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C302A6A1A9100891047 /* LoginViewModel.swift */; };
 		91876C332A6A1B7400891047 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C322A6A1B7400891047 /* LoginView.swift */; };
@@ -69,6 +71,7 @@
 		91570D862A79BF290035BEF1 /* WorkoutCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCalendar.swift; sourceTree = "<group>"; };
 		91570D882A79BF3C0035BEF1 /* WorkoutCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCalendarViewModel.swift; sourceTree = "<group>"; };
 		91570D8A2A7C553B0035BEF1 /* WorkoutCalendar Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutCalendar Test.swift"; sourceTree = "<group>"; };
+		916489542A806A70008D3DD2 /* ScrollingHStackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackMod.swift; sourceTree = "<group>"; };
 		917421092A67779F003C59EE /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		91876C302A6A1A9100891047 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		91876C322A6A1B7400891047 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916489582A806DA7008D3DD2 /* SwiftUISnappingScrollView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +148,7 @@
 				91570D842A79BE000035BEF1 /* ViewWorkout.swift */,
 				91570D862A79BF290035BEF1 /* WorkoutCalendar.swift */,
 				91570D8A2A7C553B0035BEF1 /* WorkoutCalendar Test.swift */,
+				916489542A806A70008D3DD2 /* ScrollingHStackMod.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -322,6 +327,9 @@
 			dependencies = (
 			);
 			name = "ProServ Mobile";
+			packageProductDependencies = (
+				916489572A806DA7008D3DD2 /* SwiftUISnappingScrollView */,
+			);
 			productName = "ProServ Mobile";
 			productReference = 91F154392A5CB9240059977A /* ProServ Mobile.app */;
 			productType = "com.apple.product-type.application";
@@ -394,6 +402,9 @@
 				Base,
 			);
 			mainGroup = 91F154302A5CB9240059977A;
+			packageReferences = (
+				916489562A806DA7008D3DD2 /* XCLocalSwiftPackageReference "../../../../Downloads/SwiftUISnappingScrollView-main" */,
+			);
 			productRefGroup = 91F1543A2A5CB9240059977A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -462,6 +473,7 @@
 				91876C332A6A1B7400891047 /* LoginView.swift in Sources */,
 				91570D722A731E1A0035BEF1 /* ServiceOrchestrator.swift in Sources */,
 				91876C382A6A1E0100891047 /* KeychainWrapper.swift in Sources */,
+				916489552A806A70008D3DD2 /* ScrollingHStackMod.swift in Sources */,
 				91F1546E2A5CC07D0059977A /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,6 +799,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		916489562A806DA7008D3DD2 /* XCLocalSwiftPackageReference "../../../../Downloads/SwiftUISnappingScrollView-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../../Downloads/SwiftUISnappingScrollView-main";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		916489572A806DA7008D3DD2 /* SwiftUISnappingScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUISnappingScrollView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91F154312A5CB9240059977A /* Project object */;
 }

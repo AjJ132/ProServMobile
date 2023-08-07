@@ -15,9 +15,24 @@ class WorkoutCalendarViewModel: ObservableObject {
     var weekStart: String = ""
     var weekEnd: String = ""
     
+    @Published var selectedDateIndex = 0
+    
+    let calendar = Calendar.current
+    var dates: [Date] {
+        let startDate = calendar.startOfDay(for: Date())
+        return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: startDate) }
+    }
+    
     init(){
         setWeekForDate(date: Date())
+        
+        //Set selectedDateIndex to the index of today in the week
     }
+    
+    func indexOfDate(_ targetDate: Date) -> Int? {
+        return dates.firstIndex { calendar.isDate($0, inSameDayAs: targetDate) }
+    }
+
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -32,7 +47,6 @@ class WorkoutCalendarViewModel: ObservableObject {
     }
     
     func setWeekForDate(date: Date) {
-        let calendar = Calendar.current
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd"
         
