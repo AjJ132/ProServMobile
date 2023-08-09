@@ -12,6 +12,7 @@ class LoginViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var isLoading = false
     
+    
     var userToken: String? {
             get {
                 return KeychainWrapper.standard.string(forKey: "userToken")
@@ -33,7 +34,8 @@ class LoginViewModel: ObservableObject {
     
     func loginUser(email: String, password: String) {
             isLoading = true
-            let url = URL(string: "http://localhost:5274/api/auth/login")!
+            let endpoint = "/api/auth/login"
+            let url = URL(string: ServerURL.baseURL + endpoint)!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")

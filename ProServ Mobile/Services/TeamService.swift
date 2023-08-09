@@ -15,8 +15,8 @@ class TeamService{
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not found"])))
             return
         }
-        
-        let url = URL(string: "http://localhost:5274/api/team/team")!
+        let endpoint = "/api/team/team"
+        let url = URL(string: ServerURL.baseURL + endpoint)!
         var request = URLRequest(url: url)
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         

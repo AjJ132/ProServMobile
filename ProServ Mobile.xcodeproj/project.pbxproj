@@ -10,7 +10,7 @@
 		91570D722A731E1A0035BEF1 /* ServiceOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D712A731E1A0035BEF1 /* ServiceOrchestrator.swift */; };
 		91570D742A73286F0035BEF1 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D732A73286F0035BEF1 /* DataState.swift */; };
 		91570D762A7330570035BEF1 /* WorkoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D752A7330570035BEF1 /* WorkoutService.swift */; };
-		91570D792A7331750035BEF1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D782A7331750035BEF1 /* Workout.swift */; };
+		91570D792A7331750035BEF1 /* WorkoutJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D782A7331750035BEF1 /* WorkoutJSON.swift */; };
 		91570D7B2A748C9A0035BEF1 /* AssignedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D7A2A748C9A0035BEF1 /* AssignedWorkout.swift */; };
 		91570D7E2A774AD90035BEF1 /* Response Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D7D2A774AD90035BEF1 /* Response Wrapper.swift */; };
 		91570D852A79BE000035BEF1 /* ViewWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D842A79BE000035BEF1 /* ViewWorkout.swift */; };
@@ -24,6 +24,11 @@
 		91876C372A6A1E0100891047 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C352A6A1E0100891047 /* KeychainItemAccessibility.swift */; };
 		91876C382A6A1E0100891047 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91876C362A6A1E0100891047 /* KeychainWrapper.swift */; };
 		9192D4422A807EF200B52759 /* Calendar-Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192D4412A807EF200B52759 /* Calendar-Carousel.swift */; };
+		9192D4442A81107B00B52759 /* WorkoutBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192D4432A81107B00B52759 /* WorkoutBlock.swift */; };
+		9192D4462A81110D00B52759 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192D4452A81110D00B52759 /* Parameter.swift */; };
+		91E462232A82786000B3A04C /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E462222A82786000B3A04C /* Workout.swift */; };
+		91E462252A827A5A00B3A04C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E462242A827A5A00B3A04C /* DateFormatter.swift */; };
+		91E462282A82C22000B3A04C /* ServerURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E462272A82C22000B3A04C /* ServerURL.swift */; };
 		91F1543D2A5CB9240059977A /* ProServ_MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1543C2A5CB9240059977A /* ProServ_MobileApp.swift */; };
 		91F1543F2A5CB9240059977A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1543E2A5CB9240059977A /* ContentView.swift */; };
 		91F154412A5CB9250059977A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F154402A5CB9250059977A /* Assets.xcassets */; };
@@ -64,7 +69,7 @@
 		91570D712A731E1A0035BEF1 /* ServiceOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceOrchestrator.swift; sourceTree = "<group>"; };
 		91570D732A73286F0035BEF1 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
 		91570D752A7330570035BEF1 /* WorkoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutService.swift; sourceTree = "<group>"; };
-		91570D782A7331750035BEF1 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		91570D782A7331750035BEF1 /* WorkoutJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutJSON.swift; sourceTree = "<group>"; };
 		91570D7A2A748C9A0035BEF1 /* AssignedWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignedWorkout.swift; sourceTree = "<group>"; };
 		91570D7D2A774AD90035BEF1 /* Response Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response Wrapper.swift"; sourceTree = "<group>"; };
 		91570D842A79BE000035BEF1 /* ViewWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWorkout.swift; sourceTree = "<group>"; };
@@ -77,6 +82,11 @@
 		91876C352A6A1E0100891047 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainItemAccessibility.swift; path = "../../../../../../Downloads/SwiftKeychainWrapper-develop/SwiftKeychainWrapper/KeychainItemAccessibility.swift"; sourceTree = "<group>"; };
 		91876C362A6A1E0100891047 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainWrapper.swift; path = "../../../../../../Downloads/SwiftKeychainWrapper-develop/SwiftKeychainWrapper/KeychainWrapper.swift"; sourceTree = "<group>"; };
 		9192D4412A807EF200B52759 /* Calendar-Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar-Carousel.swift"; sourceTree = "<group>"; };
+		9192D4432A81107B00B52759 /* WorkoutBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBlock.swift; sourceTree = "<group>"; };
+		9192D4452A81110D00B52759 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		91E462222A82786000B3A04C /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		91E462242A827A5A00B3A04C /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		91E462272A82C22000B3A04C /* ServerURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerURL.swift; sourceTree = "<group>"; };
 		91F154392A5CB9240059977A /* ProServ Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProServ Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F1543C2A5CB9240059977A /* ProServ_MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProServ_MobileApp.swift; sourceTree = "<group>"; };
 		91F1543E2A5CB9240059977A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,8 +138,10 @@
 		91570D772A7330740035BEF1 /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
-				91570D782A7331750035BEF1 /* Workout.swift */,
+				91570D782A7331750035BEF1 /* WorkoutJSON.swift */,
 				91570D7A2A748C9A0035BEF1 /* AssignedWorkout.swift */,
+				9192D4432A81107B00B52759 /* WorkoutBlock.swift */,
+				9192D4452A81110D00B52759 /* Parameter.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -168,6 +180,25 @@
 				91876C362A6A1E0100891047 /* KeychainWrapper.swift */,
 			);
 			path = "Custom Packages";
+			sourceTree = "<group>";
+		};
+		91E462212A82784700B3A04C /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				91E462222A82786000B3A04C /* Workout.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
+		91E462262A82C20F00B3A04C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				91F154702A5CC36B0059977A /* ColorExtensions.swift */,
+				91570D732A73286F0035BEF1 /* DataState.swift */,
+				91E462242A827A5A00B3A04C /* DateFormatter.swift */,
+				91E462272A82C22000B3A04C /* ServerURL.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		91F154302A5CB9240059977A = {
@@ -268,8 +299,8 @@
 		91F1546F2A5CC35B0059977A /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				91F154702A5CC36B0059977A /* ColorExtensions.swift */,
-				91570D732A73286F0035BEF1 /* DataState.swift */,
+				91E462262A82C20F00B3A04C /* Util */,
+				91E462212A82784700B3A04C /* Workouts */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -447,19 +478,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E462252A827A5A00B3A04C /* DateFormatter.swift in Sources */,
 				91F1546A2A5CC03E0059977A /* HomeView.swift in Sources */,
 				91570D892A79BF3C0035BEF1 /* WorkoutCalendarViewModel.swift in Sources */,
 				91F154712A5CC36B0059977A /* ColorExtensions.swift in Sources */,
-				91570D792A7331750035BEF1 /* Workout.swift in Sources */,
+				91E462232A82786000B3A04C /* Workout.swift in Sources */,
+				91570D792A7331750035BEF1 /* WorkoutJSON.swift in Sources */,
 				91570D872A79BF290035BEF1 /* WorkoutCalendar.swift in Sources */,
 				91F1543F2A5CB9240059977A /* ContentView.swift in Sources */,
 				91F154782A5D822F0059977A /* WeekView.swift in Sources */,
+				91E462282A82C22000B3A04C /* ServerURL.swift in Sources */,
 				91FD02F92A6E0978001EF9AA /* TeamService.swift in Sources */,
 				91FD02F42A6DF37A001EF9AA /* ActivityIndicator.swift in Sources */,
 				91570D7B2A748C9A0035BEF1 /* AssignedWorkout.swift in Sources */,
 				9174210A2A67779F003C59EE /* UserInformation.swift in Sources */,
 				91876C372A6A1E0100891047 /* KeychainItemAccessibility.swift in Sources */,
 				91FD02FC2A6E09F6001EF9AA /* Team.swift in Sources */,
+				9192D4442A81107B00B52759 /* WorkoutBlock.swift in Sources */,
 				91F1543D2A5CB9240059977A /* ProServ_MobileApp.swift in Sources */,
 				91F154732A5D767E0059977A /* CardView.swift in Sources */,
 				91570D742A73286F0035BEF1 /* DataState.swift in Sources */,
@@ -467,6 +502,7 @@
 				91876C312A6A1A9100891047 /* LoginViewModel.swift in Sources */,
 				9192D4422A807EF200B52759 /* Calendar-Carousel.swift in Sources */,
 				91FD02F72A6E0415001EF9AA /* UserService.swift in Sources */,
+				9192D4462A81110D00B52759 /* Parameter.swift in Sources */,
 				91570D8B2A7C553B0035BEF1 /* WorkoutCalendar Test.swift in Sources */,
 				91570D7E2A774AD90035BEF1 /* Response Wrapper.swift in Sources */,
 				91570D852A79BE000035BEF1 /* ViewWorkout.swift in Sources */,
@@ -511,6 +547,127 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		91E462292A82C59000B3A04C /* AJIphoneRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AJIphoneRelease;
+		};
+		91E4622A2A82C59000B3A04C /* AJIphoneRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ProServ Mobile/Preview Content\"";
+				DEVELOPMENT_TEAM = L78Y96XMY7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AJJohnson.ProServ-Mobile";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = AJIphoneRelease;
+		};
+		91E4622B2A82C59000B3A04C /* AJIphoneRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L78Y96XMY7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AJJohnson.ProServ-MobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProServ Mobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProServ Mobile";
+			};
+			name = AJIphoneRelease;
+		};
+		91E4622C2A82C59000B3A04C /* AJIphoneRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L78Y96XMY7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AJJohnson.ProServ-MobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ProServ Mobile";
+			};
+			name = AJIphoneRelease;
+		};
 		91F1545B2A5CB9250059977A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -767,6 +924,7 @@
 			buildConfigurations = (
 				91F1545B2A5CB9250059977A /* Debug */,
 				91F1545C2A5CB9250059977A /* Release */,
+				91E462292A82C59000B3A04C /* AJIphoneRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -776,6 +934,7 @@
 			buildConfigurations = (
 				91F1545E2A5CB9250059977A /* Debug */,
 				91F1545F2A5CB9250059977A /* Release */,
+				91E4622A2A82C59000B3A04C /* AJIphoneRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -785,6 +944,7 @@
 			buildConfigurations = (
 				91F154612A5CB9250059977A /* Debug */,
 				91F154622A5CB9250059977A /* Release */,
+				91E4622B2A82C59000B3A04C /* AJIphoneRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -794,6 +954,7 @@
 			buildConfigurations = (
 				91F154642A5CB9250059977A /* Debug */,
 				91F154652A5CB9250059977A /* Release */,
+				91E4622C2A82C59000B3A04C /* AJIphoneRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -15,8 +15,8 @@ class UserService {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not found"])))
             return
         }
-        
-        let url = URL(string: "http://localhost:5274/api/user/user-information")!
+        let endpoint = "/api/user/user-information"
+        let url = URL(string: ServerURL.baseURL + endpoint)!
         var request = URLRequest(url: url)
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         

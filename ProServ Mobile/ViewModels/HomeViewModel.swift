@@ -99,7 +99,7 @@ class HomeViewModel: ObservableObject {
         getUserTeam()
         
         //Get this weeks workouts for the user
-        getThisWeeksWorkouts()
+        //getThisWeeksWorkouts()
     }
     
     func getUserInformation() {
