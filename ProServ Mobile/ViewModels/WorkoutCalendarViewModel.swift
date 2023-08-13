@@ -33,7 +33,6 @@ class WorkoutCalendarViewModel: ObservableObject {
     
     @Published var selectedWorkout : Workout?
     @Published var weeksWorkouts : [Workout]
-    @Published var testSelectedWorkout: Workout?
     
     let _serviceOrchestrator : ServiceOrchestrator
     
@@ -162,74 +161,74 @@ class WorkoutCalendarViewModel: ObservableObject {
         setWeekForDate(date: date)
     }
     
-    func setTestWorkouts(){
-        let jsonString = """
-                {
-                    "$id": "1",
-                    "$values": [
-                        {
-                            "$id": "2",
-                            "workoutId": 6,
-                            "workoutName": "long run 2",
-                            "coachId": "0ff2160c-596f-4d89-bba3-3a15ea3e81d1",
-                            "notes": "test for long run 2",
-                            "dateToComplete": "2023-08-08T10:12:45.131875-04:00",
-                            "workoutBlocks": {
-                                "$id": "3",
-                                "$values": [
-                                    {
-                                        "$id": "4",
-                                        "blockId": 5,
-                                        "blockOrder": 0,
-                                        "workoutId": 6,
-                                        "blockName": "Long Run",
-                                        "blockType": "Long Run",
-                                        "workout": {
-                                            "$ref": "2"
-                                        },
-                                        "parameters": {
-                                            "$id": "5",
-                                            "$values": [
-                                                {
-                                                    "$id": "6",
-                                                    "parameterId": 4,
-                                                    "blockId": 5,
-                                                    "sValue1": null,
-                                                    "sValue2": null,
-                                                    "tTime1": "00:07:30",
-                                                    "tTime2": null,
-                                                    "sDistance1": 3,
-                                                    "sDistance2": null,
-                                                    "workoutBlock": {
-                                                        "$ref": "4"
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            },
-                            "assignedWorkouts": null
-                        }
-                    ]
-                }
-                """
-        
-        let jsonData = jsonString.data(using: .utf8)!
-        
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-        
-        do {
-            let response = try decoder.decode(WorkoutResponseJSON.self, from: jsonData)
-            if let firstWorkout = response.values.first {
-                self.testSelectedWorkout = Workout(from: firstWorkout)
-            }
-            print("Decoded and set testSelectedWorkout successfully")
-        } catch {
-            print("Failed to decode JSON: \(error)")
-        }
-    }
+//    func setTestWorkouts(){
+//        let jsonString = """
+//                {
+//                    "$id": "1",
+//                    "$values": [
+//                        {
+//                            "$id": "2",
+//                            "workoutId": 6,
+//                            "workoutName": "long run 2",
+//                            "coachId": "0ff2160c-596f-4d89-bba3-3a15ea3e81d1",
+//                            "notes": "test for long run 2",
+//                            "dateToComplete": "2023-08-08T10:12:45.131875-04:00",
+//                            "workoutBlocks": {
+//                                "$id": "3",
+//                                "$values": [
+//                                    {
+//                                        "$id": "4",
+//                                        "blockId": 5,
+//                                        "blockOrder": 0,
+//                                        "workoutId": 6,
+//                                        "blockName": "Long Run",
+//                                        "blockType": "Long Run",
+//                                        "workout": {
+//                                            "$ref": "2"
+//                                        },
+//                                        "parameters": {
+//                                            "$id": "5",
+//                                            "$values": [
+//                                                {
+//                                                    "$id": "6",
+//                                                    "parameterId": 4,
+//                                                    "blockId": 5,
+//                                                    "sValue1": null,
+//                                                    "sValue2": null,
+//                                                    "tTime1": "00:07:30",
+//                                                    "tTime2": null,
+//                                                    "sDistance1": 3,
+//                                                    "sDistance2": null,
+//                                                    "workoutBlock": {
+//                                                        "$ref": "4"
+//                                                    }
+//                                                }
+//                                            ]
+//                                        }
+//                                    }
+//                                ]
+//                            },
+//                            "assignedWorkouts": null
+//                        }
+//                    ]
+//                }
+//                """
+//        
+//        let jsonData = jsonString.data(using: .utf8)!
+//        
+//        let decoder = JSONDecoder()
+//        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+//        
+//        do {
+//            let response = try decoder.decode(WorkoutResponseJSON.self, from: jsonData)
+//            if let firstWorkout = response.values.first {
+//                self.testSelectedWorkout = Workout(from: firstWorkout)
+//            }
+//            print("Decoded and set testSelectedWorkout successfully")
+//        } catch {
+//            print("Failed to decode JSON: \(error)")
+//        }
+//    }
     
 }
 

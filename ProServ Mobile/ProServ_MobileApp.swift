@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct ProServ_MobileApp: App {
+    @StateObject var authManager = AuthenticationManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(authManager: authManager)
         }
     }
-}
+} 

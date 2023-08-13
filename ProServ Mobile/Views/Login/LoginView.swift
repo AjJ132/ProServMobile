@@ -13,8 +13,7 @@ struct LoginView: View {
     @State private var email = "aj132@icloud.com"
     @State private var password = "Johnson132"
     
-   
-    
+
     
     var body: some View {
             ZStack {
@@ -71,12 +70,14 @@ struct LoginView: View {
         }
     
     func loginUser(email: String, password: String) {
+           
+        
             viewModel.loginUser(email: email, password: password)
         }
 }
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: LoginViewModel())
+        LoginView(viewModel: LoginViewModel(authManager: AuthenticationManager()))
     }
 }

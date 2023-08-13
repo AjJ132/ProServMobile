@@ -8,7 +8,7 @@
 import Foundation
 
 struct ServerURL {
-    static let development = "http://localhost:5274"
+    static let development = "http://localhost:5274/api"
     static let production = "https://proserv.azurewebsites.net"
     
     #if DEBUG

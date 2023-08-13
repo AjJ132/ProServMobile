@@ -79,10 +79,10 @@ struct WorkoutCalendar: View {
                                 .onAppear {
                                     proxy.scrollTo(viewModel.selectedDate, anchor: .leading) // Change anchor as needed
                                 }
-
+                                
                             }
                         }
-
+                        
                         
                     }.padding(.horizontal)
                     ZStack {
@@ -197,7 +197,7 @@ struct WorkoutCalendar: View {
                                                         Spacer()
                                                     }
                                                 }
-
+                                                
                                                 Spacer()
                                                 
                                                 //Collapse Button
@@ -206,13 +206,13 @@ struct WorkoutCalendar: View {
                                                         Circle()
                                                             .fill(Color.blue)
                                                             .frame(width: 25, height: 25) // Adjust the size of the circle
-
+                                                        
                                                         Image(systemName: isCollapsed ? "chevron.down" : "chevron.up")
                                                             .foregroundColor(Color.darkText) // Set the color explicitly
-                                                            
+                                                        
                                                     }
                                                 }
-
+                                                
                                                 
                                             }
                                             if !isCollapsed {

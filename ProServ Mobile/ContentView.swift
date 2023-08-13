@@ -8,30 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = LoginViewModel()
+    @ObservedObject var authManager: AuthenticationManager
+    @State private var isLoading = true
+    @State private var selectedTab = 0
 
+    
     var body: some View {
         VStack {
-            if viewModel.isAuthenticated {
-                TabView {
-                    HomeView(viewModel: HomeViewModel())
+            if isLoading{
+                SplashScreenView()
+            } else if authManager.isAuthenticated {
+                TabView(selection: $selectedTab) {
+                    HomeView(viewModel: HomeViewModel(), selectedTab: $selectedTab)
                         .badge(2)
                         .tabItem {
                             Label("Home", systemImage: "house.fill")
                         }
+                        .tag(0)
                     WorkoutCalendar(viewModel: WorkoutCalendarViewModel())
                         .tabItem {
                             Label("Workouts", systemImage: "figure.run")
                         }
-                    HomeView(viewModel: HomeViewModel())
+                        .tag(1)
+                    SettingsView(viewModel: SettingsViewModel(), authManager: authManager)
                         .badge("!")
                         .tabItem {
                             Label("Account", systemImage: "person.crop.circle.fill")
                         }
+                        .tag(2)
                 }
                 .background(Color.primaryBackground)
             } else {
-                LoginView(viewModel: viewModel)
+                LoginView(viewModel: LoginViewModel(authManager: authManager))
+            }
+        }.onAppear {
+            // Simulate a loading delay, or replace with actual loading logic
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                isLoading = false
             }
         }
     }
@@ -39,6 +52,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(authManager: AuthenticationManager())
     }
 }

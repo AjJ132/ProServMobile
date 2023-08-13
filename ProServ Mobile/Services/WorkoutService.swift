@@ -74,36 +74,52 @@ class WorkoutService{
 //            print("Failed to create URL from string")
 //            return
 //        }
-
+        var testURl = ServerURL.baseURL + endpoint
+        print(testURl)
         let url = URL(string: ServerURL.baseURL + endpoint)!
-        print("BASE: " + ServerURL.baseURL)
-        print("END: " + endpoint)
         var request = URLRequest(url: url)
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            //print(String(data: data!, encoding: .utf8) ?? "Invalid data")
+
             if let error = error {
                 print("Error: \(error)")
                 completion(.failure(error))
-            } else if let data = data {
-                do {
-                    // Decode the JSON to the WorkoutsResponse model
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                    let response = try decoder.decode(WorkoutResponseJSON.self, from: data)
-                    
-                    // Convert the WorkoutResponseJSON models to Workout models
-                    let workouts = response.values.map { Workout(from: $0) }
-                    
-                    print("Got Workouts by date range")
-                    completion(.success(workouts))
-                } catch {
-                    print("Error decoding JSON: \(error)")
-                    completion(.failure(error))
+            } else if let data = data, let httpResponse = response as? HTTPURLResponse {
+                switch httpResponse.statusCode {
+                case 200:
+                    do {
+                        let decoder = JSONDecoder()
+                        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+
+                        // Attempt to decode WorkoutResponseJSON first
+                        let response = try decoder.decode(WorkoutResponseJSON.self, from: data)
+                        let workouts = response.values.map { Workout(from: $0) }
+                        print("Got Workouts by date range")
+                        completion(.success(workouts))
+                    } catch {
+                        let decoder = JSONDecoder()
+                        do {
+                            let messageResponse = try decoder.decode(MessageResponse.self, from: data)
+                            print("Information: \(messageResponse.message)")
+                            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: messageResponse.message])))
+                        } catch {
+                            // If both decodings fail, report the error
+                            print("Error decoding JSON: \(error)")
+                            completion(.failure(error))
+                        }
+                    }
+
+                default:
+                    // Handle other status codes if needed
+                    print("Unhandled status code: \(httpResponse.statusCode)")
+                    completion(.failure(NSError(domain: "", code: httpResponse.statusCode, userInfo: nil)))
                 }
             }
         }
         task.resume()
+
     }
 
     

@@ -38,7 +38,7 @@ class TeamService{
                     let team = try decoder.decode(Team.self, from: data)
                     completion(.success(team))
                 } catch {
-                    print("Error decoding JSON: \(error)")
+                    //print("Error decoding JSON: \(error)")
                     completion(.failure(error))
                 }
             }

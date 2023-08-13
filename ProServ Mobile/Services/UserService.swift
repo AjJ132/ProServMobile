@@ -38,7 +38,7 @@ class UserService {
                     let userInfo = try decoder.decode(UserInformation.self, from: data)
                     completion(.success(userInfo))
                 } catch {
-                    print("Error decoding JSON: \(error)")
+                    //print("Error decoding JSON: \(error)")
                     completion(.failure(error))
                 }
             }
