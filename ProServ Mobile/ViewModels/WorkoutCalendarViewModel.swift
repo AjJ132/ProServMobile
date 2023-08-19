@@ -32,6 +32,7 @@ class WorkoutCalendarViewModel: ObservableObject {
     }
     
     @Published var selectedWorkout : Workout?
+    @Published var hasWorkoutToday: Bool
     @Published var weeksWorkouts : [Workout]
     
     let _serviceOrchestrator : ServiceOrchestrator
@@ -44,6 +45,8 @@ class WorkoutCalendarViewModel: ObservableObject {
         self.weeksWorkouts = []
         self.startDateRange = Date() // If this isn't what you want, adjust accordingly
         self.endDateRange = Date() // Same as above
+        self.hasWorkoutToday = false //By default no workout for today
+        
         
         setWeekForDate(date: Date())
         
@@ -55,12 +58,14 @@ class WorkoutCalendarViewModel: ObservableObject {
             }
         }
         
+        
         //Get workouts for the selected week and set the selected workout to today
         getWorkoutsByDateRange(startDate: startDateRange, endDate: endDateRange) {
             self.setTodaysWorkout(newDate: Date())
         }
         
-        //Init test workout
+        
+        
     }
     
     
@@ -73,11 +78,13 @@ class WorkoutCalendarViewModel: ObservableObject {
         
         // Exit the function if there are no workouts for today
         guard let selectedWorkout = workoutsForToday.first else {
-            print("Leaving")
+            print("No Workout Today")
+            self.hasWorkoutToday = false
             return
         }
         
         self.selectedWorkout = selectedWorkout
+        self.hasWorkoutToday = true
         print("Got Todays Workout \(selectedWorkout.workoutName)")
     }
     
@@ -101,8 +108,29 @@ class WorkoutCalendarViewModel: ObservableObject {
     
     
     
+    
+    
     func selectDate(newDate: Date) {
         selectedDate = newDate
+        
+        //Check to see if there is a workout with the new dates date
+        let calendar = Calendar.current
+        
+        let workoutsForNewDate = self.weeksWorkouts.filter {
+            calendar.isDate($0.dateToComplete, inSameDayAs: newDate)
+        }
+        
+        // Exit the function if there are no workouts for today
+        guard let selectedWorkout = workoutsForNewDate.first else {
+            print("No Workout For New Date")
+            self.selectedWorkout = nil
+            self.hasWorkoutToday = false
+            return
+        }
+        
+        self.selectedWorkout = selectedWorkout
+        self.hasWorkoutToday = true
+        print("Got Workout For New Date \(selectedWorkout.workoutName)")
     }
     
     func indexOfDate(_ targetDate: Date) -> Int? {

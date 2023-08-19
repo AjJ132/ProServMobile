@@ -66,7 +66,8 @@ struct WorkoutCalendar: View {
                                 HStack {
                                     ForEach(viewModel.dates, id: \.self) { date in
                                         Button(action: {
-                                            viewModel.selectedDate = date
+                                            //viewModel.selectedDate = date
+                                            viewModel.selectDate(newDate: date)
                                         }) {
                                             Text(viewModel.dayOfWeek(from: date))
                                                 .foregroundColor(viewModel.selectedDate == date ? .white : Color(.opaqueSeparator))
@@ -85,261 +86,377 @@ struct WorkoutCalendar: View {
                         
                         
                     }.padding(.horizontal)
+                   
                     ZStack {
                         Color(.systemBackground)
-                        
-                        ScrollView{
-                            VStack {
-                                if true {
-                                    VStack {
-                                        //Name
-                                        HStack{
-                                            Text("Name")
-                                                .foregroundColor(.placeholderText)
-                                                .font(.caption)
-                                                .fontWeight(.medium)
-                                            Spacer()
-                                        }
-                                        HStack{
-                                            Text("Long Run")
-                                                .foregroundColor(.primary)
-                                                .font(.title)
-                                                .fontWeight(.bold)
-                                            Spacer()
-                                        }
-                                        
-                                        //Coach
-                                        HStack{
-                                            Text("Coach")
-                                                .foregroundColor(.placeholderText)
-                                                .font(.caption)
-                                                .fontWeight(.medium)
-                                            Spacer()
-                                        }.padding(.top)
-                                        HStack{
-                                            Text("Coach Sarah")
-                                                .foregroundColor(.primary)
-                                                .font(.subheadline)
-                                                .fontWeight(.semibold)
-                                            Spacer()
-                                        }
-                                        Spacer()
-                                        
-                                        //Info
-                                        HStack{
-                                            Spacer()
-                                            VStack{
-                                                Text("2")
-                                                    .foregroundColor(.primary)
-                                                    .font(.subheadline)
-                                                    .fontWeight(.semibold)
-                                                Text("Exercises")
-                                                    .foregroundColor(.placeholderText)
-                                                    .font(.caption)
-                                                    .fontWeight(.medium)
-                                            }
-                                            Spacer()
-                                            VStack{
-                                                Text("1H 30M")
-                                                    .foregroundColor(.primary)
-                                                    .font(.subheadline)
-                                                    .fontWeight(.semibold)
-                                                Text("Duration")
-                                                    .foregroundColor(.placeholderText)
-                                                    .font(.caption)
-                                                    .fontWeight(.medium)
-                                            }
-                                            Spacer()
-                                        }.padding(.top)
-                                    }
-                                    .padding()  // Padding inside the RoundedRectangle.
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 12)
-                                            .fill(Color(.tertiarySystemBackground))
-                                            .shadow(color: Color(.placeholderText), radius: 5)
-                                    )
+                        if viewModel.hasWorkoutToday == false{
+                            VStack{
+                                Spacer()
+                                Text("No Workout Today")
+                                    .font(.largeTitle)
+                                    .fontWeight(.semibold)
+                                    .padding(.top, 20)
+                                
+                                Spacer()
+                                Spacer()
+                            }.padding()
+                        } else {
+                            ScrollView{
+                                VStack {
                                     
-                                    HStack{
-                                        Text("Exercises")
-                                            .foregroundColor(.placeholderText)
-                                            .font(.caption)
-                                            .fontWeight(.medium)
-                                        Spacer()
-                                    }.padding(.top)
-                                    VStack {
-                                        
-                                        VStack{
+                                        VStack {
+                                            //Name
                                             HStack{
-                                                ZStack{
-                                                    Circle()
-                                                        .fill(Color.blue)
-                                                        .frame(width: 40, height: 40) // Adjust the size of the circle
-                                                    Text("A")
-                                                        .foregroundColor(.white)
-                                                        .font(.title3)
-                                                        .fontWeight(.semibold)
-                                                    
-                                                }.padding(.trailing, 5)
-                                                VStack {
-                                                    HStack{
-                                                        Text("Warmup")
-                                                            .fontWeight(.semibold)
-                                                        Spacer()
-                                                    }
-                                                    
-                                                    if isCollapsed {
-                                                        HStack {
-                                                            Text("...")
-                                                                .foregroundColor(.secondaryLabel)
-                                                            Spacer() // This pushes the text to the left
-                                                        }
-                                                    } else {
-                                                        Spacer()
-                                                    }
-                                                }
-                                                
+                                                Text("Name")
+                                                    .foregroundColor(.placeholderText)
+                                                    .font(.caption)
+                                                    .fontWeight(.medium)
                                                 Spacer()
-                                                
-                                                //Collapse Button
-                                                Button(action: toggleCollapse) {
-                                                    ZStack {
+                                            }
+                                            HStack{
+                                                Text(viewModel.selectedWorkout?.workoutName ?? "N/A")
+                                                    .foregroundColor(.primary)
+                                                    .font(.title)
+                                                    .fontWeight(.bold)
+                                                Spacer()
+                                            }
+                                            
+                                            //Coach
+                                            HStack{
+                                                Text("Coach")
+                                                    .foregroundColor(.placeholderText)
+                                                    .font(.caption)
+                                                    .fontWeight(.medium)
+                                                Spacer()
+                                            }.padding(.top)
+                                            HStack{
+                                                Text(viewModel.selectedWorkout?.coachName ?? "COACH")
+                                                    .foregroundColor(.primary)
+                                                    .font(.subheadline)
+                                                    .fontWeight(.semibold)
+                                                Spacer()
+                                            }
+                                            Spacer()
+                                            
+                                            //Info
+                                            HStack{
+                                                Spacer()
+                                                VStack{
+                                                    Text("2")
+                                                        .foregroundColor(.primary)
+                                                        .font(.subheadline)
+                                                        .fontWeight(.semibold)
+                                                    Text("Exercises")
+                                                        .foregroundColor(.placeholderText)
+                                                        .font(.caption)
+                                                        .fontWeight(.medium)
+                                                }
+                                                Spacer()
+                                                VStack{
+                                                    Text("????")
+                                                        .foregroundColor(.primary)
+                                                        .font(.subheadline)
+                                                        .fontWeight(.semibold)
+                                                    Text("Duration")
+                                                        .foregroundColor(.placeholderText)
+                                                        .font(.caption)
+                                                        .fontWeight(.medium)
+                                                }
+                                                Spacer()
+                                            }.padding(.top)
+                                        }
+                                        .padding()  // Padding inside the RoundedRectangle.
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .fill(Color(.tertiarySystemBackground))
+                                                .shadow(color: Color(.placeholderText), radius: 5)
+                                        )
+                                        
+                                        HStack{
+                                            Text("Exercises")
+                                                .foregroundColor(.placeholderText)
+                                                .font(.caption)
+                                                .fontWeight(.medium)
+                                            Spacer()
+                                        }.padding(.top)
+                                        
+                                        ForEach(viewModel.selectedWorkout!.workoutBlocks.blocks, id: \.id){ block in
+                                            VStack{
+                                                HStack{
+                                                    ZStack{
                                                         Circle()
                                                             .fill(Color.blue)
-                                                            .frame(width: 25, height: 25) // Adjust the size of the circle
+                                                            .frame(width: 40, height: 40) // Adjust the size of the circle
+                                                        Text("\(block.blockOrder + 1)")
+                                                            .foregroundColor(.white)
+                                                            .font(.title3)
+                                                            .fontWeight(.semibold)
                                                         
-                                                        Image(systemName: isCollapsed ? "chevron.down" : "chevron.up")
-                                                            .foregroundColor(Color.darkText) // Set the color explicitly
+                                                    }.padding(.trailing, 5)
+                                                    VStack {
+                                                        HStack{
+                                                            Text(block.blockName)
+                                                                .fontWeight(.semibold)
+                                                            Spacer()
+                                                        }
+                                                        
+                                                        if isCollapsed {
+                                                            HStack {
+                                                                Text("...")
+                                                                    .foregroundColor(.secondaryLabel)
+                                                                Spacer() // This pushes the text to the left
+                                                            }
+                                                        } else {
+                                                            Spacer()
+                                                        }
+                                                    }
+                                                    
+                                                    Spacer()
+                                                    
+                                                    //Collapse Button
+                                                    Button(action: toggleCollapse) {
+                                                        ZStack {
+                                                            Circle()
+                                                                .fill(Color.blue)
+                                                                .frame(width: 25, height: 25) // Adjust the size of the circle
+                                                            
+                                                            Image(systemName: isCollapsed ? "chevron.down" : "chevron.up")
+                                                                .foregroundColor(Color.darkText) // Set the color explicitly
+                                                            
+                                                        }
+                                                    }
+                                                }
+                                                if !isCollapsed {
+                                                    HStack{
+                                                        ZStack{
+                                                            Circle()
+                                                                .fill(Color.systemGray3)
+                                                                .frame(width: 20, height: 20) // Adjust the size of the circle
+//                                                            Text("\(block.blockOrder + 1)")
+//                                                                .foregroundColor(.white)
+//                                                                .font(.headline)
+//                                                                 .fontWeight(.semibold)
+                                                        }.padding(.leading, 10)
+                                                            .padding(.trailing, 15)
+                                                        
+                                                        switch block.blockType {
+                                                            case "Long Run":
+                                                            let test = block
+                                                            let test2 = block.parameters
+//                                                            print("Pace: " + pace)
+//                                                                Text("Pace: \(pace)")
+//                                                                .font(.headline)
+                                                            default:
+                                                                Text("N/A")
+                                                                    .font(.headline)
+                                                        }
+                                                        
+                                                        
+//                                                        Text("2 Mile Run")
+//                                                            .font(.headline)
+                                                        Spacer()
+                                                        
+                                                    }
+                                                    
+                                                    HStack{
+                                                        ZStack{
+                                                            Circle()
+                                                                .fill(Color.systemGray3)
+                                                                .frame(width: 20, height: 20) // Adjust the size of the circle
+                                                            Text("2")
+                                                                .foregroundColor(.white)
+                                                                .font(.headline)
+                                                                .fontWeight(.semibold)
+                                                        }.padding(.leading, 10)
+                                                            .padding(.trailing, 15)
+                                                        
+                                                        Text("Dynamic Strech")
+                                                            .font(.headline)
+                                                        
+                                                        Spacer()
                                                         
                                                     }
                                                 }
-                                                
-                                                
-                                            }
-                                            if !isCollapsed {
-                                                HStack{
-                                                    ZStack{
-                                                        Circle()
-                                                            .fill(Color.systemGray3)
-                                                            .frame(width: 20, height: 20) // Adjust the size of the circle
-                                                        Text("1")
-                                                            .foregroundColor(.white)
-                                                            .font(.headline)
-                                                            .fontWeight(.semibold)
-                                                    }.padding(.leading, 10)
-                                                        .padding(.trailing, 15)
-                                                    
-                                                    Text("2 Mile Run")
-                                                        .font(.headline)
-                                                    
-                                                    Spacer()
-                                                    
-                                                }
-                                                
-                                                HStack{
-                                                    ZStack{
-                                                        Circle()
-                                                            .fill(Color.systemGray3)
-                                                            .frame(width: 20, height: 20) // Adjust the size of the circle
-                                                        Text("2")
-                                                            .foregroundColor(.white)
-                                                            .font(.headline)
-                                                            .fontWeight(.semibold)
-                                                    }.padding(.leading, 10)
-                                                        .padding(.trailing, 15)
-                                                    
-                                                    Text("Dynamic Strech")
-                                                        .font(.headline)
-                                                    
-                                                    Spacer()
-                                                    
-                                                }
                                             }
                                         }
                                         
-                                        Divider()
                                         
-                                        VStack{
-                                            HStack{
-                                                ZStack{
-                                                    Circle()
-                                                        .fill(Color.blue)
-                                                        .frame(width: 40, height: 40) // Adjust the size of the circle
-                                                    Text("B")
-                                                        .foregroundColor(.white)
-                                                        .font(.title3)
-                                                        .fontWeight(.semibold)
-                                                }
-                                                VStack{
-                                                    Text("Long Run")
-                                                        .fontWeight(.semibold)
-                                                    Spacer()
-                                                }
-                                                Spacer()
-                                                ZStack{
-                                                    Circle()
-                                                        .fill(Color.blue)
-                                                        .frame(width: 25, height: 25) // Adjust the size of the circle
-                                                    Image(systemName: "chevron.up")
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                            HStack{
-                                                ZStack{
-                                                    Circle()
-                                                        .fill(Color.systemGray3)
-                                                        .frame(width: 20, height: 20) // Adjust the size of the circle
-                                                    Text("1")
-                                                        .foregroundColor(.white)
-                                                        .font(.headline)
-                                                        .fontWeight(.semibold)
-                                                }.padding(.leading, 10)
-                                                    .padding(.trailing, 15)
-                                                
-                                                Text("6 Mile Run")
-                                                    .font(.headline)
-                                                
-                                                Spacer()
-                                                
-                                                Text("8:30/mi")
-                                                
-                                            }
-                                            
-                                            HStack{
-                                                ZStack{
-                                                    Circle()
-                                                        .fill(Color.systemGray3)
-                                                        .frame(width: 20, height: 20) // Adjust the size of the circle
-                                                    Text("2")
-                                                        .foregroundColor(.white)
-                                                        .font(.headline)
-                                                        .fontWeight(.semibold)
-                                                }.padding(.leading, 10)
-                                                    .padding(.trailing, 15)
-                                                
-                                                Text("1 Mile Cooldown")
-                                                    .font(.headline)
-                                                
-                                                Spacer()
-                                                
-                                            }
-                                        }
-                                    }
-                                    .padding(20)  // Padding inside the RoundedRectangle.
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 12)
-                                            .fill(Color(.tertiarySystemBackground))
-                                            .shadow(color: Color(.placeholderText), radius: 5)
-                                    )
+                                        //MARK: - Section Old Code
+//                                        VStack {
+//                                            
+//                                            VStack{
+//                                                HStack{
+//                                                    ZStack{
+//                                                        Circle()
+//                                                            .fill(Color.blue)
+//                                                            .frame(width: 40, height: 40) // Adjust the size of the circle
+//                                                        Text("A")
+//                                                            .foregroundColor(.white)
+//                                                            .font(.title3)
+//                                                            .fontWeight(.semibold)
+//                                                        
+//                                                    }.padding(.trailing, 5)
+//                                                    VStack {
+//                                                        HStack{
+//                                                            Text("Warmup")
+//                                                                .fontWeight(.semibold)
+//                                                            Spacer()
+//                                                        }
+//                                                        
+//                                                        if isCollapsed {
+//                                                            HStack {
+//                                                                Text("...")
+//                                                                    .foregroundColor(.secondaryLabel)
+//                                                                Spacer() // This pushes the text to the left
+//                                                            }
+//                                                        } else {
+//                                                            Spacer()
+//                                                        }
+//                                                    }
+//                                                    
+//                                                    Spacer()
+//                                                    
+//                                                    //Collapse Button
+//                                                    Button(action: toggleCollapse) {
+//                                                        ZStack {
+//                                                            Circle()
+//                                                                .fill(Color.blue)
+//                                                                .frame(width: 25, height: 25) // Adjust the size of the circle
+//                                                            
+//                                                            Image(systemName: isCollapsed ? "chevron.down" : "chevron.up")
+//                                                                .foregroundColor(Color.darkText) // Set the color explicitly
+//                                                            
+//                                                        }
+//                                                    }
+//                                                    
+//                                                    
+//                                                }
+//                                                if !isCollapsed {
+//                                                    HStack{
+//                                                        ZStack{
+//                                                            Circle()
+//                                                                .fill(Color.systemGray3)
+//                                                                .frame(width: 20, height: 20) // Adjust the size of the circle
+//                                                            Text("1")
+//                                                                .foregroundColor(.white)
+//                                                                .font(.headline)
+//                                                                .fontWeight(.semibold)
+//                                                        }.padding(.leading, 10)
+//                                                            .padding(.trailing, 15)
+//                                                        
+//                                                        Text("2 Mile Run")
+//                                                            .font(.headline)
+//                                                        
+//                                                        Spacer()
+//                                                        
+//                                                    }
+//                                                    
+//                                                    HStack{
+//                                                        ZStack{
+//                                                            Circle()
+//                                                                .fill(Color.systemGray3)
+//                                                                .frame(width: 20, height: 20) // Adjust the size of the circle
+//                                                            Text("2")
+//                                                                .foregroundColor(.white)
+//                                                                .font(.headline)
+//                                                                .fontWeight(.semibold)
+//                                                        }.padding(.leading, 10)
+//                                                            .padding(.trailing, 15)
+//                                                        
+//                                                        Text("Dynamic Strech")
+//                                                            .font(.headline)
+//                                                        
+//                                                        Spacer()
+//                                                        
+//                                                    }
+//                                                }
+//                                            }
+//                                            
+//                                            Divider()
+//                                            
+//                                            VStack{
+//                                                HStack{
+//                                                    ZStack{
+//                                                        Circle()
+//                                                            .fill(Color.blue)
+//                                                            .frame(width: 40, height: 40) // Adjust the size of the circle
+//                                                        Text("B")
+//                                                            .foregroundColor(.white)
+//                                                            .font(.title3)
+//                                                            .fontWeight(.semibold)
+//                                                    }
+//                                                    VStack{
+//                                                        Text("Long Run")
+//                                                            .fontWeight(.semibold)
+//                                                        Spacer()
+//                                                    }
+//                                                    Spacer()
+//                                                    ZStack{
+//                                                        Circle()
+//                                                            .fill(Color.blue)
+//                                                            .frame(width: 25, height: 25) // Adjust the size of the circle
+//                                                        Image(systemName: "chevron.up")
+//                                                        
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                                HStack{
+//                                                    ZStack{
+//                                                        Circle()
+//                                                            .fill(Color.systemGray3)
+//                                                            .frame(width: 20, height: 20) // Adjust the size of the circle
+//                                                        Text("1")
+//                                                            .foregroundColor(.white)
+//                                                            .font(.headline)
+//                                                            .fontWeight(.semibold)
+//                                                    }.padding(.leading, 10)
+//                                                        .padding(.trailing, 15)
+//                                                    
+//                                                    Text("6 Mile Run")
+//                                                        .font(.headline)
+//                                                    
+//                                                    Spacer()
+//                                                    
+//                                                    Text("8:30/mi")
+//                                                    
+//                                                }
+//                                                
+//                                                HStack{
+//                                                    ZStack{
+//                                                        Circle()
+//                                                            .fill(Color.systemGray3)
+//                                                            .frame(width: 20, height: 20) // Adjust the size of the circle
+//                                                        Text("2")
+//                                                            .foregroundColor(.white)
+//                                                            .font(.headline)
+//                                                            .fontWeight(.semibold)
+//                                                    }.padding(.leading, 10)
+//                                                        .padding(.trailing, 15)
+//                                                    
+//                                                    Text("1 Mile Cooldown")
+//                                                        .font(.headline)
+//                                                    
+//                                                    Spacer()
+//                                                    
+//                                                }
+//                                            }
+//                                        }
+//                                        .padding(20)  // Padding inside the RoundedRectangle.
+//                                        .background(
+//                                            RoundedRectangle(cornerRadius: 12)
+//                                                .fill(Color(.tertiarySystemBackground))
+//                                                .shadow(color: Color(.placeholderText), radius: 5)
+//                                        )
+                                        
+                                    
                                     
                                 }
-                                else{
-                                    Text("No Workouts Today!")
-                                }
+                                .padding(30)
                             }
-                            .padding(30)
                         }
+                        
+                        
                     }
                     .frame(height: geo.size.height)
                     .offset(y: showDetails ? (geo.size.height * 0.3 - 90) : geo.size.height * 0.1 - 90) // Change the offset based on condition
