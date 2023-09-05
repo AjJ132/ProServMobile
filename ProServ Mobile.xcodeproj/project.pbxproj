@@ -13,7 +13,6 @@
 		915152332A844AE400C09FCF /* AuthStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915152322A844AE400C09FCF /* AuthStateManager.swift */; };
 		915152352A844EA900C09FCF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915152342A844EA900C09FCF /* LoadingView.swift */; };
 		915152372A8506D100C09FCF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915152362A8506D100C09FCF /* Launch Screen.storyboard */; };
-		915152392A850E2600C09FCF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 915152382A850E2500C09FCF /* logo.png */; };
 		9151523B2A850FC800C09FCF /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151523A2A850FC800C09FCF /* SplashScreenView.swift */; };
 		91570D722A731E1A0035BEF1 /* ServiceOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D712A731E1A0035BEF1 /* ServiceOrchestrator.swift */; };
 		91570D742A73286F0035BEF1 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91570D732A73286F0035BEF1 /* DataState.swift */; };
@@ -81,7 +80,6 @@
 		915152322A844AE400C09FCF /* AuthStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateManager.swift; sourceTree = "<group>"; };
 		915152342A844EA900C09FCF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		915152362A8506D100C09FCF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		915152382A850E2500C09FCF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = "../../../../../../../Library/Containers/at.EternalStorms.Yoink/Data/Documents/YoinkPromisedFiles.noIndex/yoinkFilePromiseCreationFolder1C6ECEAD-13EE-4794-957F-3400F2E2A606/add1C6ECEAD-13EE-4794-957F-3400F2E2A606/logo.png"; sourceTree = "<group>"; };
 		9151523A2A850FC800C09FCF /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		91570D712A731E1A0035BEF1 /* ServiceOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceOrchestrator.swift; sourceTree = "<group>"; };
 		91570D732A73286F0035BEF1 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
@@ -357,7 +355,6 @@
 		91FD02F22A6DF362001EF9AA /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				915152382A850E2500C09FCF /* logo.png */,
 				91FD02F32A6DF37A001EF9AA /* ActivityIndicator.swift */,
 				915152342A844EA900C09FCF /* LoadingView.swift */,
 				915152362A8506D100C09FCF /* Launch Screen.storyboard */,
@@ -495,7 +492,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				915152392A850E2600C09FCF /* logo.png in Resources */,
 				915152372A8506D100C09FCF /* Launch Screen.storyboard in Resources */,
 				91F154442A5CB9250059977A /* Preview Assets.xcassets in Resources */,
 				91F154412A5CB9250059977A /* Assets.xcassets in Resources */,
